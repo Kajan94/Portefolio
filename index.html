@@ -7,7 +7,7 @@
   <meta name="description" content="Portfolio de Kajan Arulnathan, étudiant en BUT Informatique. Découvrez ses projets d’équipe en data, développement web et automatisation.">
   <title>Kajan Arulnathan | Data, web et automatisation</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
 
     :root {
       color-scheme: light;
@@ -20,7 +20,7 @@
       --line: #d1d9e8;
       --blue: #274cc5;
       --body: 'DM Sans', system-ui, sans-serif;
-      --head: 'Bricolage Grotesque', 'DM Sans', system-ui, sans-serif;
+      --head: 'DM Sans', system-ui, sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -42,11 +42,11 @@
     .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: .4rem clamp(.75rem, 2.4vw, 2.15rem); }
     .nav-links a { color: #e4ecff; font-size: .86rem; font-weight: 700; text-decoration: none; }
     .nav-links a:hover { text-decoration: underline; }
-    .cover-body { display: grid; grid-template-columns: 1.04fr 1fr; align-items: center; gap: 3.1rem; padding-block: clamp(3.2rem, 6.5vw, 6rem); }
+    .cover-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 5vw, 5rem); padding-block: clamp(2.3rem, 4.8vw, 4.6rem); }
     .lead { color: #e0e8fb; max-width: 38ch; font-size: clamp(1.05rem, 2vw, 1.32rem); line-height: 1.43; margin-top: 1.15rem; }
     .eyebrow { font: 700 .73rem/1.3 var(--body); letter-spacing: .13em; text-transform: uppercase; color: var(--quiet); }
     .cover .eyebrow { color: #aec3ed; }
-    h1 { font: 800 clamp(3.4rem, 7.35vw, 7.4rem)/.88 var(--head); letter-spacing: -.075em; margin-top: .85rem; }
+    h1 { font: 700 clamp(2.45rem, 5.35vw, 5.25rem)/1.04 var(--head); letter-spacing: -.028em; margin-top: .6rem; overflow-wrap: anywhere; }
     h1 span { display: block; color: var(--mint); }
     .cta { display: inline-flex; align-items: center; gap: 1rem; margin-top: 1.45rem; padding: .62rem .86rem; color: var(--night); background: var(--mint); font-weight: 800; font-size: .89rem; text-decoration: none; }
     .cta:hover { background: #e0ffec; }
@@ -60,15 +60,15 @@
     .preview img { width: 100%; aspect-ratio: 1.67; object-fit: cover; background: #d7e3f3; }
     .preview figcaption { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .1rem .7rem; padding: .58rem .85rem; font-size: .78rem; color: #d5e3f9; }
     .preview a { font-weight: 700; color: var(--mint); }
-    .availability { background: var(--mint); color: var(--night); }
-    .availability-inner { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem 1.5rem; padding-block: .8rem; }
+    .availability { color: #e0e8fb; }
+    .availability-inner { display: grid; gap: .3rem; padding-top: .85rem; margin-top: 1.3rem; border-top: 1px solid #526584; }
     .availability-inner > div { display: flex; align-items: baseline; flex-wrap: wrap; gap: .15rem .65rem; }
-    .availability-inner dt { font-weight: 800; }
+    .availability-inner dt { color: var(--mint); font-weight: 800; min-width: 6.25rem; }
     .availability-inner dd { font-size: .88rem; }
 
     .work { padding-block: clamp(3rem, 6.6vw, 5.75rem); }
     .section-heading { max-width: 37rem; margin-bottom: 1.65rem; }
-    .section-heading h2, .details-heading { font: 760 clamp(2.45rem, 5.2vw, 4.8rem)/1 var(--head); letter-spacing: -.065em; }
+    .section-heading h2, .details-heading { font: 750 clamp(2.1rem, 4.6vw, 3.95rem)/1.08 var(--head); letter-spacing: -.035em; }
     .section-heading p { margin-top: .55rem; color: var(--quiet); }
     .work-layout { display: grid; grid-template-columns: minmax(145px, 190px) minmax(0, 1fr); gap: clamp(1.5rem, 4.5vw, 4rem); align-items: start; }
     .index-nav { position: sticky; top: 1.1rem; display: flex; flex-direction: column; border-top: 2px solid var(--ink); }
@@ -76,7 +76,7 @@
     .index-nav a:hover { color: var(--blue); text-decoration: underline; }
     .entry { scroll-margin-top: 1rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: clamp(1rem, 2.7vw, 2.25rem); padding-block: 1.7rem; border-top: 1px solid var(--line); }
     .entry:first-child { border-top: 2px solid var(--ink); }
-    .entry h3 { font: 750 clamp(1.95rem, 3.6vw, 3.05rem)/1.05 var(--head); letter-spacing: -.052em; margin: .28rem 0 .55rem; }
+    .entry h3 { font: 750 clamp(1.55rem, 3.5vw, 2.75rem)/1.12 var(--head); letter-spacing: -.027em; overflow-wrap: anywhere; margin: .28rem 0 .55rem; }
     .entry .description { color: var(--quiet); max-width: 60ch; }
     .technologies { margin-top: .55rem; font-size: .81rem; font-weight: 700; color: var(--ink); }
     .project-links { display: flex; flex-wrap: wrap; gap: .25rem .95rem; margin-top: .72rem; }
@@ -113,16 +113,20 @@
       .wrap { width: calc(100% - 32px); }
       .nav { min-height: 58px; }
       .cover-body, .work-layout, .entry, .experience-copy { grid-template-columns: minmax(0, 1fr); }
-      .cover-body { padding-block: 2.7rem; }
+      .cover-body { padding-block: 1.65rem 2rem; gap: 1.35rem; }
+      .viewer { max-width: 560px; }
+      h1 { font-size: clamp(2.65rem, 7.5vw, 4.25rem); }
       .index-nav { position: static; flex-direction: row; flex-wrap: wrap; gap: .12rem 1rem; }
       .index-nav a { border-bottom: 0; }
       .entry { gap: .65rem; }
     }
     @media (max-width: 430px) {
+      .nav { flex-direction: column; align-items: flex-start; gap: .45rem; padding-block: .7rem; }
+      .nav-links { justify-content: flex-start; }
       .nav-links a { font-size: .78rem; }
-      .availability-inner, .skill-list { grid-template-columns: minmax(0, 1fr); }
-      .availability-inner > div + div { border-top: 1px solid #91bba6; padding-top: .4rem; }
-      h1 { font-size: clamp(3.35rem, 14vw, 4.1rem); }
+      .viewer-head { align-items: flex-start; flex-wrap: wrap; }
+      .skill-list { grid-template-columns: minmax(0, 1fr); }
+      h1 { font-size: clamp(1.75rem, 9.6vw, 3rem); }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
@@ -144,8 +148,14 @@
       <div>
         <p class="eyebrow">3e année de BUT Informatique · IUT de Créteil-Vitry</p>
         <h1>Kajan <span>Arulnathan</span></h1>
-        <p class="lead">Data, développement web et automatisation.</p>
+        <p class="lead">Je conçois des outils pour traiter, explorer et visualiser des données, de l’API à l’interface web.</p>
         <a class="cta" href="#projets">Explorer mes projets <span aria-hidden="true">↓</span></a>
+        <div class="availability">
+          <dl class="availability-inner">
+            <div><dt>Alternance</dt><dd>1 an · démarrage possible jusqu’à fin décembre 2026</dd></div>
+            <div><dt>Stage</dt><dd>Du 8 mars au 13 juin 2027</dd></div>
+          </dl>
+        </div>
       </div>
       <div class="viewer" aria-label="Aperçus de mes projets">
         <div class="viewer-head">
@@ -170,19 +180,13 @@
         </figure>
       </div>
     </div>
-    <div class="availability">
-      <dl class="wrap availability-inner">
-        <div><dt>Alternance</dt><dd>1 an · démarrage possible jusqu’à fin décembre 2026</dd></div>
-        <div><dt>Stage</dt><dd>Du 8 mars au 13 juin 2027</dd></div>
-      </dl>
-    </div>
   </header>
 
   <main id="contenu">
     <section class="wrap work" id="projets" aria-labelledby="projets-titre">
       <div class="section-heading">
         <h2 id="projets-titre">Projets</h2>
-        <p>Cinq réalisations universitaires en équipe. Le code et les ZIP sont accessibles depuis mes forks GitHub.</p>
+        <p>Cinq projets universitaires réalisés en équipe. Chaque fiche donne accès au code, aux données disponibles et à la démonstration.</p>
       </div>
       <div class="work-layout">
         <nav class="index-nav" aria-label="Sommaire des projets">
@@ -238,6 +242,7 @@
                 <a href="https://github.com/Kajan94/site-amelie">Code de l’application</a>
                 <a href="https://github.com/Kajan94/site-amelie/archive/refs/heads/main.zip">ZIP de l’application</a>
                 <a href="https://github.com/Kajan94/database-amelie">Base et rapport</a>
+                <a href="https://github.com/Kajan94/database-amelie/blob/main/explorer.sql">Requêtes SQL</a>
                 <a href="https://github.com/Kajan94/database-amelie/archive/refs/heads/main.zip">ZIP du rapport (Git LFS)</a>
               </div>
               <details class="extra"><summary>Extrait et base complète</summary><p>L’application inclut un extrait SQLite pour la démo et une archive d’origine. Le ZIP du dépôt de la base contient un pointeur Git LFS. Pour récupérer la base complète, <a href="https://github.com/Kajan94/database-amelie#ouvrir-la-base">suivre le guide Git LFS</a>.</p></details>
@@ -254,9 +259,10 @@
               <p class="description">Construire deux cartes à partir d’un instantané des stations. Les zones de Voronoï, la triangulation de Delaunay et un arbre couvrant permettent d’explorer la proximité des stations.</p>
               <p class="technologies">Python · JSON · NumPy · SciPy · Folium</p>
               <div class="project-links">
-                <a href="https://arilesd.github.io/Projet-Velib/velib_stations_voronoi.html">Carte de Voronoï</a>
-                <a href="https://arilesd.github.io/Projet-Velib/velib_stations_map.html">Carte du réseau</a>
+                <a href="https://kajan94.github.io/Projet-Velib/velib_stations_voronoi.html">Carte de Voronoï</a>
+                <a href="https://kajan94.github.io/Projet-Velib/velib_stations_map.html">Carte du réseau</a>
                 <a href="https://github.com/Kajan94/Projet-Velib">Scripts et données</a>
+                <a href="https://github.com/Kajan94/Projet-Velib/blob/main/analyser_stations.py">Contrôle Python</a>
                 <a href="https://github.com/Kajan94/Projet-Velib/archive/refs/heads/main.zip">ZIP du dépôt</a>
               </div>
             </div>
