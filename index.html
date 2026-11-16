@@ -100,6 +100,13 @@
     .experience-copy p { color: var(--quiet); }
     .experience-copy ul { margin: 0; padding-left: 1.2rem; }
     .experience-copy li + li { margin-top: .3rem; }
+    .stage-visuals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.65rem; }
+    .stage-visuals figure { overflow: hidden; border: 1px solid var(--line); border-radius: .55rem; background: white; }
+    .stage-visuals a { display: block; background: #171717; cursor: zoom-in; }
+    .stage-visuals a:focus-visible { outline-offset: -4px; }
+    .stage-visuals img { display: block; width: 100%; height: auto; aspect-ratio: 2/1; object-fit: contain; }
+    .stage-visuals figcaption { display: grid; gap: .15rem; padding: .75rem .9rem; color: var(--quiet); font-size: .86rem; }
+    .stage-visuals figcaption strong { color: var(--ink); }
     footer { background: var(--night); color: #dfe9ff; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .4rem 1.1rem; padding-block: 1rem; font-size: .83rem; }
     footer a { color: var(--mint); }
@@ -119,6 +126,7 @@
       .index-nav { position: static; flex-direction: row; flex-wrap: wrap; gap: .12rem 1rem; }
       .index-nav a { border-bottom: 0; }
       .entry { gap: .65rem; }
+      .stage-visuals { grid-template-columns: minmax(0, 1fr); }
     }
     @media (max-width: 430px) {
       .nav { flex-direction: column; align-items: flex-start; gap: .45rem; padding-block: .7rem; }
@@ -309,10 +317,24 @@
       <div class="experience-copy">
         <div><h3>Stagiaire DevOps et automatisation</h3><p>Centreville Télévision · Paris · avril à juin 2026</p></div>
         <ul>
-          <li>Automatisation des accès Active Directory des intermittents avec n8n et Farmer’s Wife.</li>
-          <li>Déploiement d’un assistant RAG local sur les procédures Notion, avec Qdrant et Ollama.</li>
-          <li>Extraction des données de planification pour produire des indicateurs de suivi avec Python.</li>
+          <li><strong>Assistant RAG local.</strong> J’ai automatisé l’indexation de procédures Notion dans Qdrant et créé une interface de recherche conversationnelle avec n8n et Ollama.</li>
+          <li><strong>Statistiques d’occupation.</strong> J’ai développé une application Python et Flask qui calcule l’occupation des salles et l’utilisation des logiciels à partir des données de planification.</li>
+          <li><strong>Automatisation des accès.</strong> J’ai conçu un flux n8n qui exploite le planning Farmer’s Wife pour vérifier les comptes Active Directory et créer les accès nécessaires.</li>
         </ul>
+      </div>
+      <div class="stage-visuals">
+        <figure>
+          <a href="https://github.com/user-attachments/assets/d6223b32-aeec-4a7e-b53b-8eb44fabeb3b" aria-label="Agrandir la capture du workflow n8n">
+            <img src="https://github.com/user-attachments/assets/d6223b32-aeec-4a7e-b53b-8eb44fabeb3b" width="1715" height="837" loading="lazy" decoding="async" alt="Workflow n8n reliant un agent IA à Ollama et à la base vectorielle Qdrant.">
+          </a>
+          <figcaption><strong>Workflow n8n</strong> L’agent recherche la procédure dans Qdrant avant de formuler une réponse avec un modèle local.</figcaption>
+        </figure>
+        <figure>
+          <a href="https://github.com/user-attachments/assets/c3759571-38e5-4c4e-bee5-6b413a17945c" aria-label="Agrandir la capture de l’interface web">
+            <img src="https://github.com/user-attachments/assets/c3759571-38e5-4c4e-bee5-6b413a17945c" width="2048" height="1017" loading="lazy" decoding="async" alt="Écran d’accueil de l’assistant technique avec une zone de saisie des questions.">
+          </a>
+          <figcaption><strong>Interface web de l’assistant</strong> Les techniciens peuvent poser une question et ouvrir une nouvelle discussion.</figcaption>
+        </figure>
       </div>
     </section>
   </main>
