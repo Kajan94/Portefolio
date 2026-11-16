@@ -3,236 +3,333 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f4ee">
-  <meta name="description" content="Portfolio de Kajan Arulnathan, étudiant en BUT Informatique. Projets en data, développement web et cartographie.">
-  <title>Kajan Arulnathan — Portfolio data &amp; web</title>
+  <meta name="theme-color" content="#101b36">
+  <meta name="description" content="Portfolio de Kajan Arulnathan, étudiant en BUT Informatique. Découvrez ses projets d’équipe en data, développement web et automatisation.">
+  <title>Kajan Arulnathan | Data, web et automatisation</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap');
 
     :root {
       color-scheme: light;
-      --paper: #f5f4ee;
-      --ink: #122b26;
-      --muted: #465e56;
-      --line: #cad2c7;
-      --green: #dcefc0;
-      --white: #fffef9;
-      --serif: 'Instrument Serif', Georgia, serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
+      --night: #101b36;
+      --panel: #192747;
+      --mint: #c4ffdd;
+      --paper: #f5f6fb;
+      --ink: #152443;
+      --quiet: #465976;
+      --line: #d1d9e8;
+      --blue: #274cc5;
+      --body: 'DM Sans', system-ui, sans-serif;
+      --head: 'Bricolage Grotesque', 'DM Sans', system-ui, sans-serif;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 var(--sans); }
-    h1, h2, h3, p, figure { margin: 0; }
-    a { color: inherit; }
-    a:focus-visible { outline: 3px solid #357551; outline-offset: 5px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.6 var(--body); }
+    h1, h2, h3, p, figure, dl, dd { margin: 0; }
+    a { color: inherit; text-underline-offset: .19em; }
+    a:hover { text-decoration-thickness: 2px; }
+    :focus-visible { outline: 3px solid #698cff; outline-offset: 5px; }
     img { display: block; max-width: 100%; }
-    .wrap { width: min(1160px, calc(100% - 104px)); margin-inline: auto; }
-    .skip { position: absolute; top: 8px; left: 8px; z-index: 2; padding: 8px 14px; background: var(--white); transform: translateY(-180%); }
+    button { font: inherit; }
+    [hidden] { display: none !important; }
+    .wrap { width: min(1192px, calc(100% - 96px)); margin-inline: auto; }
+    .skip { position: absolute; z-index: 2; top: .6rem; left: .6rem; padding: .5rem .8rem; background: white; transform: translateY(-180%); }
     .skip:focus { transform: none; }
+    .cover { background: var(--night); color: white; }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 67px; border-bottom: 1px solid #3a4968; }
+    .brand { color: var(--mint); font: 800 .93rem/1 var(--head); text-decoration: none; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: .4rem clamp(.75rem, 2.4vw, 2.15rem); }
+    .nav-links a { color: #e4ecff; font-size: .86rem; font-weight: 700; text-decoration: none; }
+    .nav-links a:hover { text-decoration: underline; }
+    .cover-body { display: grid; grid-template-columns: 1.04fr 1fr; align-items: center; gap: 3.1rem; padding-block: clamp(3.2rem, 6.5vw, 6rem); }
+    .lead { color: #e0e8fb; max-width: 38ch; font-size: clamp(1.05rem, 2vw, 1.32rem); line-height: 1.43; margin-top: 1.15rem; }
+    .eyebrow { font: 700 .73rem/1.3 var(--body); letter-spacing: .13em; text-transform: uppercase; color: var(--quiet); }
+    .cover .eyebrow { color: #aec3ed; }
+    h1 { font: 800 clamp(3.4rem, 7.35vw, 7.4rem)/.88 var(--head); letter-spacing: -.075em; margin-top: .85rem; }
+    h1 span { display: block; color: var(--mint); }
+    .cta { display: inline-flex; align-items: center; gap: 1rem; margin-top: 1.45rem; padding: .62rem .86rem; color: var(--night); background: var(--mint); font-weight: 800; font-size: .89rem; text-decoration: none; }
+    .cta:hover { background: #e0ffec; }
+    .viewer { min-width: 0; background: var(--panel); border: 1px solid #506180; }
+    .viewer-head { display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: .66rem .85rem; border-bottom: 1px solid #506180; }
+    .viewer-head > span { color: #d5e3f9; font-size: .78rem; font-weight: 700; }
+    .preview-controls { display: flex; gap: .28rem; flex-wrap: wrap; }
+    .preview-controls button { padding: .25rem .43rem; background: transparent; border: 1px solid transparent; color: #d5e3f9; cursor: pointer; font-size: .74rem; }
+    .preview-controls button[aria-pressed=true] { background: var(--mint); color: var(--night); font-weight: 800; }
+    .preview-controls button:hover { border-color: var(--mint); }
+    .preview img { width: 100%; aspect-ratio: 1.67; object-fit: cover; background: #d7e3f3; }
+    .preview figcaption { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .1rem .7rem; padding: .58rem .85rem; font-size: .78rem; color: #d5e3f9; }
+    .preview a { font-weight: 700; color: var(--mint); }
+    .availability { background: var(--mint); color: var(--night); }
+    .availability-inner { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem 1.5rem; padding-block: .8rem; }
+    .availability-inner > div { display: flex; align-items: baseline; flex-wrap: wrap; gap: .15rem .65rem; }
+    .availability-inner dt { font-weight: 800; }
+    .availability-inner dd { font-size: .88rem; }
 
-    .site-header { border-bottom: 1px solid var(--line); }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 82px; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; }
-    .monogram { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: var(--green); font-size: .75rem; }
-    nav, .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 24px; }
-    nav a { font-size: .88rem; font-weight: 700; text-decoration: none; }
-    nav a:hover, .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-    .nav-github { border: 1px solid var(--line); border-radius: 6px; padding: 7px 12px; }
+    .work { padding-block: clamp(3rem, 6.6vw, 5.75rem); }
+    .section-heading { max-width: 37rem; margin-bottom: 1.65rem; }
+    .section-heading h2, .details-heading { font: 760 clamp(2.45rem, 5.2vw, 4.8rem)/1 var(--head); letter-spacing: -.065em; }
+    .section-heading p { margin-top: .55rem; color: var(--quiet); }
+    .work-layout { display: grid; grid-template-columns: minmax(145px, 190px) minmax(0, 1fr); gap: clamp(1.5rem, 4.5vw, 4rem); align-items: start; }
+    .index-nav { position: sticky; top: 1.1rem; display: flex; flex-direction: column; border-top: 2px solid var(--ink); }
+    .index-nav a { display: block; padding: .65rem 0; border-bottom: 1px solid var(--line); color: var(--quiet); font-size: .86rem; font-weight: 700; text-decoration: none; }
+    .index-nav a:hover { color: var(--blue); text-decoration: underline; }
+    .entry { scroll-margin-top: 1rem; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: clamp(1rem, 2.7vw, 2.25rem); padding-block: 1.7rem; border-top: 1px solid var(--line); }
+    .entry:first-child { border-top: 2px solid var(--ink); }
+    .entry h3 { font: 750 clamp(1.95rem, 3.6vw, 3.05rem)/1.05 var(--head); letter-spacing: -.052em; margin: .28rem 0 .55rem; }
+    .entry .description { color: var(--quiet); max-width: 60ch; }
+    .technologies { margin-top: .55rem; font-size: .81rem; font-weight: 700; color: var(--ink); }
+    .project-links { display: flex; flex-wrap: wrap; gap: .25rem .95rem; margin-top: .72rem; }
+    .project-links a { font-size: .83rem; font-weight: 800; color: var(--blue); }
+    .entry-preview { align-self: start; margin-top: .12rem; }
+    .entry-preview a { display: block; border: 1px solid var(--line); background: #e6ecf7; }
+    .entry-preview img { width: 100%; aspect-ratio: 1.83; object-fit: contain; }
+    .entry-preview figcaption { margin-top: .25rem; font-size: .73rem; color: var(--quiet); }
+    .extra { margin-top: .9rem; color: var(--quiet); font-size: .84rem; }
+    .extra summary { width: fit-content; color: var(--ink); cursor: pointer; font-weight: 700; }
+    .extra p { margin-top: .3rem; }
+    .extra a { color: var(--blue); font-weight: 700; }
+    .skills-area { background: #e7edfa; border-block: 1px solid var(--line); padding-block: clamp(2.4rem, 5vw, 4rem); }
+    .skill-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.3rem; margin-top: 1.4rem; }
+    .skill-list > div { padding-block: .75rem; border-top: 1px solid #bbc8df; }
+    .skill-list dt { font-weight: 800; }
+    .skill-list dd { font-size: .88rem; color: var(--quiet); }
+    .experience { padding-block: clamp(2.4rem, 5vw, 4rem); }
+    .experience-copy { display: grid; grid-template-columns: .85fr 1.15fr; gap: 1rem 2.5rem; margin-top: 1.2rem; }
+    .experience-copy h3 { font-size: 1.1rem; }
+    .experience-copy p { color: var(--quiet); }
+    .experience-copy ul { margin: 0; padding-left: 1.2rem; }
+    .experience-copy li + li { margin-top: .3rem; }
+    footer { background: var(--night); color: #dfe9ff; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .4rem 1.1rem; padding-block: 1rem; font-size: .83rem; }
+    footer a { color: var(--mint); }
 
-    .hero { display: grid; grid-template-columns: 1.06fr 1fr; align-items: center; gap: clamp(25px, 5vw, 80px); padding-block: clamp(60px, 7.5vw, 112px); }
-    .eyebrow { color: var(--muted); font: 700 .72rem/1.35 var(--sans); text-transform: uppercase; letter-spacing: .16em; }
-    h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
-    h1 { font-size: clamp(4rem, 7vw, 7.15rem); line-height: .88; letter-spacing: -.045em; margin: 17px 0 22px; }
-    h1 span { display: block; }
-    h1 em { color: #385c48; font-weight: 400; }
-    .hero-description { color: var(--muted); max-width: 46ch; font-size: clamp(1rem, 1.5vw, 1.14rem); }
-    .hero .actions { margin-top: 27px; }
-    .button { display: inline-flex; align-items: center; gap: 1em; padding: 11px 16px; border: 1px solid var(--ink); border-radius: 6px; background: var(--ink); color: var(--white); font-size: .9rem; font-weight: 700; text-decoration: none; }
-    .button:hover { background: #284d40; }
-    .text-link { text-decoration: none; font-size: .9rem; font-weight: 700; }
-    .arrow { margin-left: .25em; }
-
-    .hero-art { position: relative; padding: 22px; background: #173c32; border-radius: 12px; color: var(--white); }
-    .hero-art .shot { width: 100%; aspect-ratio: 1.54; object-fit: cover; border-radius: 5px; background: #dce6d9; }
-    .hero-art figcaption { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 2px 12px; margin-top: 14px; }
-    .hero-art figcaption strong { font-weight: 700; }
-    .hero-art figcaption span { font-size: .75rem; color: #d4e1d5; }
-
-    .projects { padding-bottom: clamp(56px, 7vw, 100px); }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; padding: 23px 0 25px; border-top: 1px solid var(--line); }
-    .section-head h2, .about h2 { font-size: clamp(2.9rem, 5vw, 4.85rem); line-height: 1; letter-spacing: -.035em; }
-    .section-head p { max-width: 29ch; color: var(--muted); font-size: .95rem; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .project { display: flex; flex-direction: column; min-width: 0; background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-    .project.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.18fr 1fr; }
-    .project-image { display: grid; align-items: center; padding: 20px; background: #e3ebe4; }
-    .water { background: #dce9e1; }
-    .bike { background: #e8ebd7; }
-    .paper { background: #ebe5d9; }
-    .health { background: #e1e8ea; }
-    .project-image img { width: 100%; aspect-ratio: 2.12; object-fit: cover; object-position: center; border: 1px solid #c2cbc0; border-radius: 5px; background: var(--white); }
-    .featured .project-image img { aspect-ratio: 1.75; }
-    .paper img { object-position: center 28%; }
-    .health img { object-fit: contain; }
-    .project-copy { display: flex; flex-direction: column; flex: 1; align-items: start; padding: 24px 27px 26px; }
-    .project-copy h3 { font-size: clamp(2.3rem, 4vw, 3.2rem); line-height: 1; margin: 8px 0 10px; letter-spacing: -.025em; }
-    .project-copy p:not(.eyebrow) { color: var(--muted); }
-    .stack { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 16px 0 18px; list-style: none; }
-    .stack li { border-radius: 5px; background: #edf0e8; color: #29483b; padding: 3px 8px; font-size: .75rem; font-weight: 700; }
-    .project-copy .actions { margin-top: auto; }
-    .project-copy .text-link { border-bottom: 1px solid #8b9e91; }
-    .project-copy .text-link:hover { border-color: var(--ink); text-decoration: none; }
-
-    .about { background: var(--green); border-top: 1px solid #c3d4b4; }
-    .about-inner { display: grid; grid-template-columns: 1fr 1.15fr; gap: 30px; padding-block: 56px; }
-    .about-copy p { max-width: 59ch; }
-    .about-copy .actions { margin-top: 16px; }
-    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 18px; padding-block: 20px; color: var(--muted); font-size: .84rem; }
-
-    @media (max-width: 880px) {
-      .wrap { width: calc(100% - 56px); }
-      .hero { gap: 25px; }
-      .hero-art { padding: 14px; }
-      .project-image { padding: 13px; }
+    @media (max-width: 1000px) {
+      .wrap { width: calc(100% - 64px); }
+      .cover-body { gap: 1.7rem; }
+      .work-layout { gap: 1.45rem; }
     }
-    @media (max-width: 680px) {
-      .wrap { width: calc(100% - 36px); }
-      .header-inner { min-height: 66px; gap: 10px; }
-      .brand { font-size: .85rem; }
-      .monogram { width: 30px; height: 30px; font-size: .68rem; }
-      nav { gap: 10px; }
-      nav a { font-size: .8rem; }
-      .nav-github { padding: 5px 9px; }
-      .hero, .grid, .project.featured, .about-inner { grid-template-columns: minmax(0, 1fr); }
-      .hero { padding-block: 49px; gap: 28px; }
-      .section-head { display: block; }
-      .section-head p { margin-top: 8px; }
-      .project-copy { padding: 20px; }
-      .about-inner { gap: 16px; padding-block: 38px; }
+    @media (max-width: 760px) {
+      .wrap { width: calc(100% - 32px); }
+      .nav { min-height: 58px; }
+      .cover-body, .work-layout, .entry, .experience-copy { grid-template-columns: minmax(0, 1fr); }
+      .cover-body { padding-block: 2.7rem; }
+      .index-nav { position: static; flex-direction: row; flex-wrap: wrap; gap: .12rem 1rem; }
+      .index-nav a { border-bottom: 0; }
+      .entry { gap: .65rem; }
     }
-    @media (max-width: 360px) {
-      .brand span + span { display: none; }
-      h1 { font-size: 3.5rem; }
+    @media (max-width: 430px) {
+      .nav-links a { font-size: .78rem; }
+      .availability-inner, .skill-list { grid-template-columns: minmax(0, 1fr); }
+      .availability-inner > div + div { border-top: 1px solid #91bba6; padding-top: .4rem; }
+      h1 { font-size: clamp(3.35rem, 14vw, 4.1rem); }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body id="haut">
   <a class="skip" href="#contenu">Aller au contenu</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="#haut" aria-label="Kajan Arulnathan, accueil"><span class="monogram" aria-hidden="true">KA</span><span aria-hidden="true">Kajan Arulnathan</span></a>
-      <nav aria-label="Navigation principale">
+  <header class="cover">
+    <nav class="wrap nav" aria-label="Navigation principale">
+      <a class="brand" href="#haut">Kajan Arulnathan</a>
+      <div class="nav-links">
         <a href="#projets">Projets</a>
-        <a href="#profil">Profil</a>
-        <a class="nav-github" href="https://github.com/Kajan94">GitHub <span aria-hidden="true">↗</span></a>
-      </nav>
+        <a href="#competences">Compétences</a>
+        <a href="#experience">Expérience</a>
+        <a href="https://github.com/Kajan94">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/kajan-arulnathan-b466a1330/">LinkedIn ↗</a>
+      </div>
+    </nav>
+    <div class="wrap cover-body">
+      <div>
+        <p class="eyebrow">3e année de BUT Informatique · IUT de Créteil-Vitry</p>
+        <h1>Kajan <span>Arulnathan</span></h1>
+        <p class="lead">Data, développement web et automatisation.</p>
+        <a class="cta" href="#projets">Explorer mes projets <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="viewer" aria-label="Aperçus de mes projets">
+        <div class="viewer-head">
+          <span>Aperçus des projets</span>
+          <div class="preview-controls" hidden>
+            <button type="button" data-preview="marine" aria-pressed="true">OcéanView</button>
+            <button type="button" data-preview="velo" aria-pressed="false">Vélib’</button>
+            <button type="button" data-preview="texte" aria-pressed="false">OCR</button>
+          </div>
+        </div>
+        <figure class="preview" id="marine">
+          <img src="https://raw.githubusercontent.com/ArilesD/oceanview-copernicus/main/docs/carte-demo.jpg" alt="Carte OcéanView avec les points de mesure fictifs de la démo" fetchpriority="high">
+          <figcaption><span>Carte marine · mesures fictives</span><a href="#oceanview">Voir OcéanView ↗</a></figcaption>
+        </figure>
+        <figure class="preview" id="velo" hidden>
+          <img src="https://raw.githubusercontent.com/ArilesD/Projet-Velib/main/docs/voronoi-velib.jpg" alt="Carte de Voronoï du réseau Vélib’" loading="lazy">
+          <figcaption><span>Cartographie des stations</span><a href="#velib">Voir Vélib’ ↗</a></figcaption>
+        </figure>
+        <figure class="preview" id="texte" hidden>
+          <img src="https://raw.githubusercontent.com/ArilesD/diplomaatique/main/docs/recherche-jardin.jpg" alt="Résultat d’une recherche dans les arrêtés fictifs de DiplomAAtique" loading="lazy">
+          <figcaption><span>Recherche d’arrêtés · exemple fictif</span><a href="#diplomaatique">Voir DiplomAAtique ↗</a></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="availability">
+      <dl class="wrap availability-inner">
+        <div><dt>Alternance</dt><dd>1 an · démarrage possible jusqu’à fin décembre 2026</dd></div>
+        <div><dt>Stage</dt><dd>Du 8 mars au 13 juin 2027</dd></div>
+      </dl>
     </div>
   </header>
+
   <main id="contenu">
-    <section class="wrap hero" aria-labelledby="nom">
-      <div>
-        <p class="eyebrow">Data · Développement web</p>
-        <h1 id="nom"><span>Kajan</span> <span><em>Arulnathan</em></span></h1>
-        <p class="hero-description">Étudiant en 3ᵉ année de BUT Informatique à l’IUT de Créteil-Vitry. J’aime transformer des données en cartes, graphiques et outils que l’on peut utiliser.</p>
-        <div class="actions">
-          <a class="button" href="#projets">Voir mes projets <span aria-hidden="true">↓</span></a>
-          <a class="text-link" href="https://github.com/Kajan94">Mon GitHub <span aria-hidden="true">↗</span></a>
+    <section class="wrap work" id="projets" aria-labelledby="projets-titre">
+      <div class="section-heading">
+        <h2 id="projets-titre">Projets</h2>
+        <p>Cinq réalisations universitaires en équipe, avec les sources, les archives et les démonstrations disponibles.</p>
+      </div>
+      <div class="work-layout">
+        <nav class="index-nav" aria-label="Sommaire des projets">
+          <a href="#oceanview">OcéanView</a>
+          <a href="#diplomaatique">DiplomAAtique</a>
+          <a href="#ameli">Data Ameli</a>
+          <a href="#velib">Stations Vélib’</a>
+          <a href="#hubeau">Hub’Eau</a>
+        </nav>
+        <div>
+          <article class="entry" id="oceanview">
+            <div>
+              <p class="eyebrow">Application et données marines</p>
+              <h3>OcéanView</h3>
+              <p class="description">Explorer la température de surface, la salinité et la chlorophylle-a sur une carte et des graphiques. L’application relie une base MySQL aux vues avec une API et gère les comptes et les rôles.</p>
+              <p class="technologies">Python · Flask · MySQL · JavaScript · Leaflet · Plotly</p>
+              <div class="project-links">
+                <a href="https://github.com/ArilesD/oceanview-copernicus">Code et guide</a>
+                <a href="https://github.com/ArilesD/oceanview-copernicus/archive/refs/heads/main.zip">ZIP du dépôt</a>
+              </div>
+              <details class="extra"><summary>Lancer la démo locale</summary><p>Le dépôt fournit un schéma MySQL et une commande qui génère 576 mesures fictives. <a href="https://github.com/ArilesD/oceanview-copernicus#lancer-en-local">Voir les étapes et les prérequis</a>.</p></details>
+            </div>
+            <figure class="entry-preview">
+              <a href="https://github.com/ArilesD/oceanview-copernicus/blob/main/docs/graphique-demo.jpg"><img src="https://raw.githubusercontent.com/ArilesD/oceanview-copernicus/main/docs/graphique-demo.jpg" alt="Graphique de température marine dans OcéanView" loading="lazy"></a>
+              <figcaption>Graphique généré sur les données de démonstration.</figcaption>
+            </figure>
+          </article>
+          <article class="entry" id="diplomaatique">
+            <div>
+              <p class="eyebrow">Extraction et recherche</p>
+              <h3>DiplomAAtique</h3>
+              <p class="description">Découper un recueil déjà passé à l’OCR, extraire ses articles et produire un JSON par arrêté. L’interface Flask permet de retrouver les actes importés dans SQLite.</p>
+              <p class="technologies">Python · JSON · SQLite · Flask · unittest</p>
+              <div class="project-links">
+                <a href="https://github.com/ArilesD/diplomaatique">Code et guide</a>
+                <a href="https://github.com/ArilesD/diplomaatique/archive/refs/heads/main.zip">ZIP du dépôt</a>
+                <a href="https://github.com/ArilesD/diplomaatique/blob/main/exemple/resultat/raa-fictif-01.json">Exemple JSON</a>
+              </div>
+              <details class="extra"><summary>Essayer l’extraction</summary><p>Le recueil fictif et ses métadonnées sont dans <code>exemple/</code>. Le dossier <code>tests/</code> contient le test qui vérifie que les articles restent rattachés au bon arrêté.</p></details>
+            </div>
+            <figure class="entry-preview">
+              <a href="https://github.com/ArilesD/diplomaatique/blob/main/docs/recherche-jardin.jpg"><img src="https://raw.githubusercontent.com/ArilesD/diplomaatique/main/docs/recherche-jardin.jpg" alt="Recherche du mot jardin dans la démo DiplomAAtique" loading="lazy"></a>
+              <figcaption>Recherche sur un arrêté fictif.</figcaption>
+            </figure>
+          </article>
+          <article class="entry" id="ameli">
+            <div>
+              <p class="eyebrow">Analyse, base de données et BI</p>
+              <h3>Data Ameli</h3>
+              <p class="description">Structurer les données agrégées de l’Assurance Maladie en SQLite et explorer les professions de santé et les prescriptions avec Flask. Un tableau de bord Excel utilise des indicateurs et des filtres pour analyser les effectifs.</p>
+              <p class="technologies">SQL · SQLite · Flask · pandas · Matplotlib · Excel</p>
+              <div class="project-links">
+                <a href="https://github.com/ArilesD/site-amelie">Code de l’application</a>
+                <a href="https://github.com/ArilesD/site-amelie/archive/refs/heads/main.zip">ZIP de l’application</a>
+                <a href="https://github.com/ArilesD/database-amelie">Base et rapport</a>
+                <a href="https://github.com/ArilesD/database-amelie/archive/refs/heads/main.zip">ZIP du rapport (Git LFS)</a>
+              </div>
+              <details class="extra"><summary>Extrait et base complète</summary><p>L’application inclut un extrait SQLite pour la démo et une archive d’origine. Le ZIP du dépôt de la base contient un pointeur Git LFS. Pour récupérer la base complète, <a href="https://github.com/ArilesD/database-amelie#ouvrir-la-base">suivre le guide Git LFS</a>.</p></details>
+            </div>
+            <figure class="entry-preview">
+              <a href="https://github.com/ArilesD/site-amelie/blob/main/docs/prescriptions-regions-2023.png"><img src="https://raw.githubusercontent.com/ArilesD/site-amelie/main/docs/prescriptions-regions-2023.png" alt="Montants des prescriptions en 2023 pour quatre régions" loading="lazy"></a>
+              <figcaption>Comparaison des prescriptions dans l’extrait de démonstration.</figcaption>
+            </figure>
+          </article>
+          <article class="entry" id="velib">
+            <div>
+              <p class="eyebrow">Cartographie et géométrie</p>
+              <h3>Stations Vélib’</h3>
+              <p class="description">Construire deux cartes à partir d’un instantané des stations. Les zones de Voronoï, la triangulation de Delaunay et un arbre couvrant permettent d’explorer la proximité des stations.</p>
+              <p class="technologies">Python · JSON · NumPy · SciPy · Folium</p>
+              <div class="project-links">
+                <a href="https://arilesd.github.io/Projet-Velib/velib_stations_voronoi.html">Carte de Voronoï</a>
+                <a href="https://arilesd.github.io/Projet-Velib/velib_stations_map.html">Carte du réseau</a>
+                <a href="https://github.com/ArilesD/Projet-Velib">Scripts et données</a>
+                <a href="https://github.com/ArilesD/Projet-Velib/archive/refs/heads/main.zip">ZIP du dépôt</a>
+              </div>
+            </div>
+            <figure class="entry-preview">
+              <a href="https://github.com/ArilesD/Projet-Velib/blob/main/docs/delaunay-velib.jpg"><img src="https://raw.githubusercontent.com/ArilesD/Projet-Velib/main/docs/delaunay-velib.jpg" alt="Stations Vélib’ reliées par la triangulation de Delaunay" loading="lazy"></a>
+              <figcaption>Voisinage entre stations de l’instantané fourni.</figcaption>
+            </figure>
+          </article>
+          <article class="entry" id="hubeau">
+            <div>
+              <p class="eyebrow">Service web et données publiques</p>
+              <h3>Hub’Eau</h3>
+              <p class="description">Consulter les analyses d’eau potable via l’API Hub’Eau et parcourir les réseaux de distribution par commune. La carte s’appuie sur une base SQLite locale.</p>
+              <p class="technologies">Python · Flask · Requests · SQLite · API REST</p>
+              <div class="project-links">
+                <a href="https://github.com/ArilesD/site-HubEau">Code et guide</a>
+                <a href="https://github.com/ArilesD/site-HubEau/archive/refs/heads/main.zip">ZIP du dépôt</a>
+              </div>
+              <details class="extra"><summary>Préparer les données locales</summary><p>Le script de préparation extrait la base de la carte et le logo depuis le ZIP d’origine inclus. Les analyses du tableau sont chargées depuis l’API.</p></details>
+            </div>
+            <figure class="entry-preview">
+              <a href="https://github.com/ArilesD/site-HubEau/blob/main/docs/tableau-hubeau.jpg"><img src="https://raw.githubusercontent.com/ArilesD/site-HubEau/main/docs/tableau-hubeau.jpg" alt="Tableau des analyses d’eau potable du projet Hub’Eau" loading="lazy"></a>
+              <figcaption>Résultats d’analyses par commune et par paramètre.</figcaption>
+            </figure>
+          </article>
         </div>
       </div>
-      <figure class="hero-art">
-        <img class="shot" src="https://raw.githubusercontent.com/ArilesD/oceanview-copernicus/main/docs/carte-demo.jpg" alt="Carte d’OcéanView montrant les points de mesure de la démonstration en Europe" fetchpriority="high">
-        <figcaption><strong>OcéanView</strong><span>Carte de démonstration · mesures fictives</span></figcaption>
-      </figure>
     </section>
-
-    <section class="wrap projects" id="projets" aria-labelledby="titre-projets">
-      <div class="section-head">
-        <h2 id="titre-projets">Projets</h2>
-        <p>Réalisations universitaires en équipe, de la préparation des données à l’interface.</p>
-      </div>
-      <div class="grid">
-        <article class="project featured">
-          <div class="project-image">
-            <img src="https://raw.githubusercontent.com/ArilesD/oceanview-copernicus/main/docs/graphique-demo.jpg" alt="Graphique OcéanView de l’évolution de la température de surface sur des données fictives" loading="lazy">
-          </div>
-          <div class="project-copy">
-            <p class="eyebrow">Données marines</p>
-            <h3>OcéanView</h3>
-            <p>Explorer les mers européennes en filtrant la température de surface, la salinité et la chlorophylle-a. Une API relie la base MySQL aux cartes et aux graphiques. La démo locale utilise des mesures fictives.</p>
-            <ul class="stack" aria-label="Technologies"><li>Flask</li><li>MySQL</li><li>Leaflet</li><li>Plotly</li></ul>
-            <div class="actions"><a class="text-link" href="https://github.com/ArilesD/oceanview-copernicus">Code et démo locale <span aria-hidden="true">↗</span></a></div>
-          </div>
-        </article>
-        <article class="project">
-          <div class="project-image bike">
-            <img src="https://raw.githubusercontent.com/ArilesD/Projet-Velib/main/docs/voronoi-velib.jpg" alt="Zones de proximité des stations Vélib’ affichées sur la carte de Voronoï" loading="lazy">
-          </div>
-          <div class="project-copy">
-            <p class="eyebrow">Cartographie</p>
-            <h3>Stations Vélib’</h3>
-            <p>Visualiser le voisinage de 1 473 stations. Deux cartes représentent les zones les plus proches de chaque station et les liens entre stations calculés avec Delaunay et Kruskal.</p>
-            <ul class="stack" aria-label="Technologies"><li>Python</li><li>SciPy</li><li>Folium</li></ul>
-            <div class="actions">
-              <a class="text-link" href="https://arilesd.github.io/Projet-Velib/velib_stations_voronoi.html">Carte interactive <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="https://github.com/ArilesD/Projet-Velib">Code source <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
-        <article class="project">
-          <div class="project-image paper">
-            <img src="https://raw.githubusercontent.com/ArilesD/diplomaatique/main/docs/recherche-jardin.jpg" alt="Résultat de recherche pour « jardin » dans la démonstration DiplomAAtique" loading="lazy">
-          </div>
-          <div class="project-copy">
-            <p class="eyebrow">Traitement de texte</p>
-            <h3>DiplomAAtique</h3>
-            <p>Transformer des recueils administratifs déjà passés à l’OCR en arrêtés consultables. Le programme sépare les actes, extrait leurs articles et les rend recherchables dans une interface Flask.</p>
-            <ul class="stack" aria-label="Technologies"><li>Python</li><li>JSON</li><li>SQLite</li><li>Flask</li></ul>
-            <div class="actions"><a class="text-link" href="https://github.com/ArilesD/diplomaatique">Code et exemple fictif <span aria-hidden="true">↗</span></a></div>
-          </div>
-        </article>
-        <article class="project">
-          <div class="project-image water">
-            <img src="https://raw.githubusercontent.com/ArilesD/site-HubEau/main/docs/tableau-hubeau.jpg" alt="Tableau des analyses d’eau potable avec dates, communes et paramètres" loading="lazy">
-          </div>
-          <div class="project-copy">
-            <p class="eyebrow">Données publiques</p>
-            <h3>Hub’Eau</h3>
-            <p>Consulter les résultats d’analyses de l’eau potable et retrouver les réseaux de distribution par commune. L’application combine un tableau alimenté par l’API Hub’Eau et une carte alimentée par SQLite.</p>
-            <ul class="stack" aria-label="Technologies"><li>Python</li><li>Flask</li><li>SQLite</li><li>API Hub’Eau</li></ul>
-            <div class="actions"><a class="text-link" href="https://github.com/ArilesD/site-HubEau">Code et guide local <span aria-hidden="true">↗</span></a></div>
-          </div>
-        </article>
-        <article class="project">
-          <div class="project-image health">
-            <img src="https://raw.githubusercontent.com/ArilesD/site-amelie/main/docs/prescriptions-regions-2023.png" alt="Graphique des montants des prescriptions en 2023 pour quatre régions de la démonstration Ameli" loading="lazy">
-          </div>
-          <div class="project-copy">
-            <p class="eyebrow">Base de données et visualisation</p>
-            <h3>Data Ameli</h3>
-            <p>Structurer les données agrégées de l’Assurance Maladie, puis explorer les effectifs des professions de santé et comparer les montants de prescriptions par région. La base et l’application sont documentées dans deux dépôts.</p>
-            <ul class="stack" aria-label="Technologies"><li>SQL</li><li>SQLite</li><li>Flask</li><li>Matplotlib</li></ul>
-            <div class="actions">
-              <a class="text-link" href="https://github.com/ArilesD/site-amelie">Application web <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="https://github.com/ArilesD/database-amelie">Base et rapport <span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </article>
+    <section class="skills-area" id="competences" aria-labelledby="competences-titre">
+      <div class="wrap">
+        <h2 class="details-heading" id="competences-titre">Compétences</h2>
+        <dl class="skill-list">
+          <div><dt>Analyse et BI</dt><dd>Python, pandas, NumPy, SciPy, Excel (TCD, graphiques, KPI), Power BI.</dd></div>
+          <div><dt>Bases de données</dt><dd>SQL, PL/SQL, MySQL, SQLite, Oracle, DBeaver.</dd></div>
+          <div><dt>Développement web et API</dt><dd>JavaScript, HTML/CSS, Flask, API REST, Requests, Beautiful Soup, PHP, Java.</dd></div>
+          <div><dt>Cartographie et visualisation</dt><dd>Leaflet, Folium, Plotly, Matplotlib.</dd></div>
+          <div><dt>Automatisation et IA</dt><dd>n8n, Active Directory, Shell, Qdrant, Ollama, RAG.</dd></div>
+          <div><dt>Environnement de travail</dt><dd>Git, GitHub, Docker, VirtualBox, MobaXterm, VS Code, Eclipse, Code::Blocks.</dd></div>
+        </dl>
       </div>
     </section>
-
-    <section class="about" id="profil" aria-labelledby="titre-profil">
-      <div class="wrap about-inner">
-        <h2 id="titre-profil">À propos</h2>
-        <div class="about-copy">
-          <p>Je me forme au développement d’applications et au traitement de données à l’Université Paris-Est Créteil. Mes projets universitaires m’ont amené à utiliser Python et SQL pour structurer des données, Flask pour les rendre accessibles et des outils de visualisation pour les explorer.</p>
-          <div class="actions"><a class="text-link" href="https://github.com/Kajan94">Mon profil GitHub <span aria-hidden="true">↗</span></a></div>
-        </div>
+    <section class="wrap experience" id="experience" aria-labelledby="experience-titre">
+      <h2 class="details-heading" id="experience-titre">Expérience</h2>
+      <div class="experience-copy">
+        <div><h3>Stagiaire DevOps et automatisation</h3><p>Centreville Télévision · Paris · avril à juin 2026</p></div>
+        <ul>
+          <li>Automatisation des accès Active Directory des intermittents avec n8n et Farmer’s Wife.</li>
+          <li>Déploiement d’un assistant RAG local sur les procédures Notion, avec Qdrant et Ollama.</li>
+          <li>Extraction des données de planification pour produire des indicateurs de suivi avec Python.</li>
+        </ul>
       </div>
     </section>
   </main>
-  <footer><div class="wrap"><span>Kajan Arulnathan</span><a href="#haut">Retour en haut ↑</a></div></footer>
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Kajan Arulnathan · BUT Informatique, 3e année</span>
+      <a href="https://github.com/Kajan94">Mon profil GitHub ↗</a>
+      <a href="#haut">Retour en haut ↑</a>
+    </div>
+  </footer>
+  <script>
+    const controls = document.querySelector('.preview-controls');
+    const buttons = Array.from(controls.querySelectorAll('button'));
+    controls.hidden = false;
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        for (const choice of buttons) {
+          const selected = choice === button;
+          choice.setAttribute('aria-pressed', String(selected));
+          document.getElementById(choice.dataset.preview).hidden = !selected;
+        }
+      });
+    }
+  </script>
 </body>
 </html>
