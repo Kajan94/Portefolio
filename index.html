@@ -176,7 +176,7 @@
           </div>
         </div>
         <figure class="preview" id="marine">
-          <img src="https://raw.githubusercontent.com/Kajan94/oceanview-copernicus/main/docs/carte-demo.jpg" alt="Carte OcéanView avec les points de mesure fictifs de la démo" fetchpriority="high">
+          <img src="https://raw.githubusercontent.com/Kajan94/Oceanview/main/docs/carte-demo.jpg" alt="Carte OcéanView avec les points de mesure fictifs de la démo" fetchpriority="high">
           <figcaption><span>Carte marine · mesures fictives</span><a href="#oceanview">Voir OcéanView ↗</a></figcaption>
         </figure>
         <figure class="preview" id="velo" hidden>
@@ -195,7 +195,7 @@
     <section class="wrap work" id="projets" aria-labelledby="projets-titre">
       <div class="section-heading">
         <h2 id="projets-titre">Projets</h2>
-        <p>Cinq projets universitaires réalisés en équipe. Chaque fiche donne accès au code, aux données disponibles et à la démonstration.</p>
+        <p>Projets en data, développement web et automatisation, avec le code ou les livrables disponibles.</p>
       </div>
       <div class="work-layout">
         <nav class="index-nav" aria-label="Sommaire des projets">
@@ -213,13 +213,14 @@
               <p class="description">Explorer la température de surface, la salinité et la chlorophylle-a sur une carte et des graphiques. L’application relie une base MySQL aux vues avec une API et gère les comptes et les rôles.</p>
               <p class="technologies">Python · Flask · MySQL · JavaScript · Leaflet · Plotly</p>
               <div class="project-links">
-                <a href="https://github.com/Kajan94/oceanview-copernicus">Code et guide</a>
-                <a href="https://github.com/Kajan94/oceanview-copernicus/archive/refs/heads/main.zip">ZIP du dépôt</a>
+                <a href="https://github.com/Kajan94/Oceanview">Code et guide</a>
+                <a href="https://github.com/Kajan94/Oceanview/blob/main/docs/architecture-oceanview.png">Schéma d’architecture</a>
+                <a href="https://github.com/Kajan94/Oceanview/blob/main/docs/carte-chaleur-oceanview.jpg">Carte de chaleur</a>
               </div>
-              <details class="extra"><summary>Lancer la démo locale</summary><p>Le dépôt fournit un schéma MySQL et une commande qui génère 576 mesures fictives. <a href="https://github.com/Kajan94/oceanview-copernicus#lancer-en-local">Voir les étapes et les prérequis</a>.</p></details>
+              <details class="extra"><summary>Lancer la démo locale</summary><p>Le dépôt fournit un schéma MySQL et une commande qui génère 576 mesures fictives. <a href="https://github.com/Kajan94/Oceanview#lancer-en-local">Voir les étapes et les prérequis</a>.</p></details>
             </div>
             <figure class="entry-preview">
-              <a href="https://github.com/Kajan94/oceanview-copernicus/blob/main/docs/graphique-demo.jpg"><img src="https://raw.githubusercontent.com/Kajan94/oceanview-copernicus/main/docs/graphique-demo.jpg" alt="Graphique de température marine dans OcéanView" loading="lazy"></a>
+              <a href="https://github.com/Kajan94/Oceanview/blob/main/docs/graphique-demo.jpg"><img src="https://raw.githubusercontent.com/Kajan94/Oceanview/main/docs/graphique-demo.jpg" alt="Graphique de température marine dans OcéanView" loading="lazy"></a>
               <figcaption>Graphique généré sur les données de démonstration.</figcaption>
             </figure>
           </article>
@@ -245,14 +246,14 @@
             <div>
               <p class="eyebrow">Analyse, base de données et BI</p>
               <h3>Data Ameli</h3>
-              <p class="description">Structurer les données agrégées de l’Assurance Maladie en SQLite et explorer les professions de santé et les prescriptions avec Flask. Un tableau de bord Excel utilise des indicateurs et des filtres pour analyser les effectifs.</p>
+              <p class="description">J’ai travaillé sur le nettoyage des données, les KPI et les tableaux croisés du dashboard Excel. En équipe, nous avons exploré les professions de santé et les prescriptions agrégées avec Flask et SQLite.</p>
               <p class="technologies">SQL · SQLite · Flask · pandas · Matplotlib · Excel</p>
               <div class="project-links">
                 <a href="https://github.com/Kajan94/site-amelie">Code de l’application</a>
-                <a href="https://github.com/Kajan94/site-amelie/archive/refs/heads/main.zip">ZIP de l’application</a>
+                <a href="https://github.com/Kajan94/site-amelie/blob/main/docs/filtre-professions-ameli.png">Exemple de filtre</a>
                 <a href="https://github.com/Kajan94/database-amelie">Base et rapport</a>
                 <a href="https://github.com/Kajan94/database-amelie/blob/main/explorer.sql">Requêtes SQL</a>
-                <a href="https://github.com/Kajan94/database-amelie/archive/refs/heads/main.zip">ZIP du rapport (Git LFS)</a>
+                <a href="https://github.com/Kajan94/database-amelie/archive/refs/heads/main.zip">ZIP du dépôt de la base</a>
               </div>
               <details class="extra"><summary>Extrait et base complète</summary><p>L’application inclut un extrait SQLite pour la démo et une archive d’origine. Le ZIP du dépôt de la base contient un pointeur Git LFS. Pour récupérer la base complète, <a href="https://github.com/Kajan94/database-amelie#ouvrir-la-base">suivre le guide Git LFS</a>.</p></details>
             </div>
@@ -265,7 +266,7 @@
             <div>
               <p class="eyebrow">Cartographie et géométrie</p>
               <h3>Stations Vélib’</h3>
-              <p class="description">Construire deux cartes à partir d’un instantané des stations. Les zones de Voronoï, la triangulation de Delaunay et un arbre couvrant permettent d’explorer la proximité des stations.</p>
+              <p class="description">Construire deux cartes à partir d’un instantané des stations. Les zones de Voronoï décrivent leur répartition. La triangulation de Delaunay et un arbre couvrant ont servi à modéliser un réseau possible d’alimentation électrique.</p>
               <p class="technologies">Python · JSON · NumPy · SciPy · Folium</p>
               <div class="project-links">
                 <a href="https://kajan94.github.io/Projet-Velib/velib_stations_voronoi.html">Carte de Voronoï</a>
@@ -287,13 +288,13 @@
               <p class="description">Consulter les analyses d’eau potable via l’API Hub’Eau et parcourir les réseaux de distribution par commune. La carte s’appuie sur une base SQLite locale.</p>
               <p class="technologies">Python · Flask · Requests · SQLite · API REST</p>
               <div class="project-links">
-                <a href="https://github.com/Kajan94/site-HubEau">Code et guide</a>
-                <a href="https://github.com/Kajan94/site-HubEau/archive/refs/heads/main.zip">ZIP du dépôt</a>
+                <a href="https://github.com/Kajan94/HubEau">Code et guide</a>
+                <a href="https://github.com/Kajan94/HubEau/blob/main/docs/parcours-carte-reseaux.png">Parcours de la carte</a>
               </div>
               <details class="extra"><summary>Préparer les données locales</summary><p>Le script de préparation extrait la base de la carte et le logo depuis le ZIP d’origine inclus. Les analyses du tableau sont chargées depuis l’API.</p></details>
             </div>
             <figure class="entry-preview">
-              <a href="https://github.com/Kajan94/site-HubEau/blob/main/docs/tableau-hubeau.jpg"><img src="https://raw.githubusercontent.com/Kajan94/site-HubEau/main/docs/tableau-hubeau.jpg" alt="Tableau des analyses d’eau potable du projet Hub’Eau" loading="lazy"></a>
+              <a href="https://github.com/Kajan94/HubEau/blob/main/docs/tableau-hubeau.jpg"><img src="https://raw.githubusercontent.com/Kajan94/HubEau/main/docs/tableau-hubeau.jpg" alt="Tableau des analyses d’eau potable du projet Hub’Eau" loading="lazy"></a>
               <figcaption>Résultats d’analyses par commune et par paramètre.</figcaption>
             </figure>
           </article>
@@ -316,12 +317,16 @@
     <section class="wrap experience" id="experience" aria-labelledby="experience-titre">
       <h2 class="details-heading" id="experience-titre">Expérience</h2>
       <div class="experience-copy">
-        <div><h3>Stagiaire DevOps et automatisation</h3><p>Centreville Télévision · Paris · avril à juin 2026</p></div>
+        <div><h3>Stagiaire DevOps et automatisation</h3><p>Centreville Télévision · Paris · 20 avril au 12 juin 2026</p></div>
         <ul>
           <li><strong>Assistant RAG local.</strong> J’ai automatisé l’indexation de procédures Notion dans Qdrant et créé une interface de recherche conversationnelle avec n8n et Ollama.</li>
           <li><strong>Statistiques d’occupation.</strong> J’ai développé une application Python et Flask qui calcule l’occupation des salles et l’utilisation des logiciels à partir des données de planification.</li>
           <li><strong>Automatisation des accès.</strong> J’ai conçu un flux n8n qui exploite le planning Farmer’s Wife pour vérifier les comptes Active Directory et créer les accès nécessaires.</li>
         </ul>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Kajan94/stage-data-automatisation">Étude de cas</a>
+        <a href="https://github.com/Kajan94/stage-data-automatisation/blob/main/Rapport-stage-public-Kajan-Arulnathan.pdf">Rapport public (PDF)</a>
       </div>
       <div class="stage-visuals">
         <figure>
